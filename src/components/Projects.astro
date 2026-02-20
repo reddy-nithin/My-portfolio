@@ -1,0 +1,103 @@
+---
+import projectsData from '../data/projects.json';
+
+const badges = ['All', ...new Set(projectsData.map((p) => p.badge))];
+---
+
+<section id="projects" class="relative border-t border-surface px-6 py-20 lg:pl-[304px] lg:pr-12">
+  <div class="mx-auto max-w-5xl">
+    <span class="font-mono text-sm text-accent">03.</span>
+    <h2 class="mt-1 font-heading text-3xl font-bold text-text-primary sm:text-4xl">Projects</h2>
+
+    <!-- Filter -->
+    <div class="mt-8 flex flex-wrap gap-2" role="tablist" aria-label="Filter projects by category">
+      {badges.map((badge) => (
+        <button
+          type="button"
+          class="project-filter rounded-full border px-4 py-2 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background data-[active=true]:border-accent data-[active=true]:bg-accent/10 data-[active=true]:text-accent data-[active=false]:border-surface data-[active=false]:bg-surface/50 data-[active=false]:text-text-muted hover:data-[active=false]:border-accent/50 hover:data-[active=false]:text-text-primary"
+          data-filter={badge === 'All' ? '*' : badge}
+          data-active={badge === 'All'}
+        >
+          {badge}
+        </button>
+      ))}
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {projectsData.map((project) => (
+        <article
+          class="project-card flex flex-col overflow-hidden rounded-xl border border-surface bg-surface/50 transition hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
+          data-badge={project.badge}
+        >
+          {project.thumbnail ? (
+            <img
+              src={project.thumbnail}
+              alt=""
+              width="600"
+              height="320"
+              class="h-40 w-full object-cover"
+              loading="lazy"
+            />
+          ) : (
+            <div class="flex h-32 w-full items-center justify-center bg-surface font-mono text-xs text-text-muted" aria-hidden="true">
+              {project.badge}
+            </div>
+          )}
+          <div class="flex flex-1 flex-col p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-heading text-lg font-semibold text-text-primary">{project.title}</h3>
+              <span class="shrink-0 rounded bg-accent/20 px-2 py-0.5 font-mono text-xs text-accent">
+                {project.badge}
+              </span>
+            </div>
+            <p class="mt-2 flex-1 text-sm text-text-muted">{project.description}</p>
+            <div class="mt-4 flex flex-wrap gap-1.5">
+              {project.techStack.slice(0, 5).map((tech) => (
+                <span class="rounded bg-background px-2 py-0.5 font-mono text-xs text-text-muted">{tech}</span>
+              ))}
+            </div>
+            <div class="mt-4 flex gap-3">
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sm text-accent transition hover:text-accent-secondary"
+              >
+                View Code
+              </a>
+              {project.liveDemo && (
+                <a
+                  href={project.liveDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm text-accent transition hover:text-accent-secondary"
+                >
+                  Live Demo →
+                </a>
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const filters = document.querySelectorAll('.project-filter');
+  const cards = document.querySelectorAll('.project-card');
+
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+      filters.forEach((b) => b.setAttribute('data-active', 'false'));
+      btn.setAttribute('data-active', 'true');
+
+      cards.forEach((card) => {
+        const badge = card.getAttribute('data-badge');
+        const show = filter === '*' || badge === filter;
+        (card as HTMLElement).style.display = show ? '' : 'none';
+      });
+    });
+  });
+</script>

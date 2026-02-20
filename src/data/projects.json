@@ -1,0 +1,42 @@
+[
+  {
+    "id": "trupharma",
+    "title": "TruPharma MVP",
+    "description": "A Retrieval-Augmented Generation (RAG) application that answers drug-label questions using official FDA data. Provides evidence-based responses grounded in real regulatory documents.",
+    "techStack": ["Python", "Streamlit", "FAISS", "BM25", "Google Gemini LLM", "Jupyter Notebook"],
+    "github": "https://github.com/reddy-nithin/TruPharma-MVP",
+    "liveDemo": null,
+    "badge": "AI / RAG",
+    "thumbnail": null
+  },
+  {
+    "id": "regucheck",
+    "title": "ReguCheck Risk Engine",
+    "description": "An end-to-end regulatory risk data pipeline demonstrating bank-grade loan risk reporting — covering data ingestion, validation, reconciliation, and interactive dashboards.",
+    "techStack": ["Python", "Streamlit", "Pandas", "Data Validation"],
+    "github": "https://github.com/reddy-nithin/ReguCheck-Risk-Engine",
+    "liveDemo": null,
+    "badge": "Data Engineering",
+    "thumbnail": null
+  },
+  {
+    "id": "311-kc",
+    "title": "311 KC Dashboard",
+    "description": "Automated data pipeline for Kansas City 311 service requests. Ingests, transforms, and loads data into Google BigQuery, visualized through Tableau dashboards. Scheduled with GitHub Actions.",
+    "techStack": ["Python", "Google BigQuery", "Tableau", "GitHub Actions", "ETL"],
+    "github": "https://github.com/reddy-nithin/-311-KC-Dashboard",
+    "liveDemo": null,
+    "badge": "Data Pipeline",
+    "thumbnail": null
+  },
+  {
+    "id": "umkc-archives",
+    "title": "UMKC Archives Data Extractor",
+    "description": "A Python automation tool for extracting, cleaning, and organizing date-related metadata from structured Excel files — designed for archival and library data management workflows.",
+    "techStack": ["Python", "Pandas", "OpenPyXL", "Excel"],
+    "github": "https://github.com/reddy-nithin/UMKC-Archives-data-extractor",
+    "liveDemo": null,
+    "badge": "Automation",
+    "thumbnail": null
+  }
+]

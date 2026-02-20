@@ -1,0 +1,57 @@
+---
+const skillGroups = [
+  {
+    title: 'Languages & Querying',
+    items: ['Python', 'SQL'],
+  },
+  {
+    title: 'Data Engineering',
+    items: ['Apache Spark', 'Apache Kafka', 'ETL Pipelines', 'Google BigQuery', 'GitHub Actions'],
+  },
+  {
+    title: 'AI & Machine Learning',
+    items: ['RAG', 'FAISS', 'BM25', 'Google Gemini API', 'Scikit-learn'],
+  },
+  {
+    title: 'Cloud',
+    items: ['AWS', 'Google Cloud Platform', 'Azure'],
+  },
+  {
+    title: 'Visualization & BI',
+    items: ['Tableau', 'Power BI', 'Streamlit'],
+  },
+  {
+    title: 'Tools & Workflow',
+    items: ['Git', 'GitHub', 'Jupyter', 'VS Code', 'Cursor'],
+  },
+];
+
+// Simple Icons / Devicons: we use inline SVGs or class-based icons; Tailwind + text for simplicity
+// For production you can swap to Simple Icons CDN or icon component
+---
+
+<section id="skills" class="relative border-t border-surface px-6 py-20 lg:pl-[304px] lg:pr-12">
+  <div class="mx-auto max-w-5xl">
+    <span class="font-mono text-sm text-accent">04.</span>
+    <h2 class="mt-1 font-heading text-3xl font-bold text-text-primary sm:text-4xl">Skills</h2>
+
+    <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {skillGroups.map((group) => (
+        <div class="rounded-xl border border-surface bg-surface/50 p-6">
+          <h3 class="font-heading text-sm font-semibold uppercase tracking-wider text-accent">
+            {group.title}
+          </h3>
+          <ul class="mt-4 flex flex-wrap gap-2" role="list">
+            {group.items.map((item) => (
+              <li>
+                <span class="rounded-lg border border-surface bg-background px-3 py-1.5 text-sm text-text-primary transition hover:border-accent/50">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

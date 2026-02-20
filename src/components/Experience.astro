@@ -1,0 +1,104 @@
+---
+const certifications = [
+  {
+    title: 'Google Business Intelligence Specialization',
+    issuer: 'Google via Coursera',
+    date: 'Apr 2025',
+    skills: 'Data Modeling, SQL, Tableau, Data Pipelines, Data Warehousing, Database Design, Data-driven Decision Making',
+    url: 'https://www.coursera.org/account/accomplishments/specialization/DHSSY2C7TBC4',
+    code: 'DHSSY2C7TBC4',
+  },
+  {
+    title: 'Decisions, Decisions: Dashboards and Reports',
+    issuer: 'Google via Coursera',
+    date: 'Aug 2025',
+    skills: 'Tableau, Business Intelligence, Data Visualization, Data Storytelling, Dashboards, Business Reporting',
+    url: 'https://www.coursera.org/account/accomplishments/records/3H562IHZCZUB',
+    code: '3H562IHZCZUB',
+  },
+  {
+    title: 'Data Analysis with R Programming',
+    issuer: 'Google via Coursera',
+    date: 'Sep 2024',
+    skills: 'R, R Markdown, ggplot2, Tidyverse, Data Analysis, Data Visualization, Statistical Programming',
+    url: 'https://www.coursera.org/account/accomplishments/records/CNZ5NGG805XW',
+    code: 'CNZ5NGG805XW',
+  },
+  {
+    title: 'AI Fluency for Students',
+    issuer: 'Anthropic',
+    date: 'Feb 2026',
+    skills: null,
+    url: 'https://verify.skilljar.com/c/uod82faiycwg',
+    code: 'uod82faiycwg',
+  },
+];
+---
+
+<section id="experience" class="relative border-t border-surface px-6 py-20 lg:pl-[304px] lg:pr-12">
+  <div class="mx-auto max-w-4xl">
+    <span class="font-mono text-sm text-accent">02.</span>
+    <h2 class="mt-1 font-heading text-3xl font-bold text-text-primary sm:text-4xl">Experience</h2>
+
+    <!-- Timeline -->
+    <div class="mt-12 space-y-12">
+      <!-- Education -->
+      <div class="relative pl-8 before:absolute before:left-0 before:top-2 before:h-[calc(100%-0.5rem)] before:w-px before:bg-accent/50">
+        <div class="absolute left-0 top-2 h-3 w-3 rounded-full bg-accent" aria-hidden="true"></div>
+        <div class="rounded-xl border border-surface bg-surface/50 p-6">
+          <p class="font-mono text-xs uppercase tracking-wider text-accent">Education</p>
+          <h3 class="mt-2 font-heading text-lg font-semibold text-text-primary">University of Missouri–Kansas City (UMKC)</h3>
+          <p class="mt-1 text-text-primary">MS in Data Science</p>
+          <p class="text-text-muted">Business Analytics Certification · Expected Graduation: May 2026</p>
+          <p class="mt-1 text-sm text-text-muted">Kansas City, MO</p>
+        </div>
+      </div>
+
+      <!-- Work experience callout -->
+      <div class="relative pl-8 before:absolute before:left-0 before:top-2 before:h-[calc(100%-0.5rem)] before:w-px before:bg-accent/50">
+        <div class="absolute left-0 top-2 h-3 w-3 rounded-full bg-accent-secondary" aria-hidden="true"></div>
+        <div class="rounded-xl border border-accent/30 bg-accent/5 p-6">
+          <p class="font-mono text-xs uppercase tracking-wider text-accent-secondary">Work</p>
+          <p class="mt-2 font-body italic text-text-primary">
+            My experience lives in my projects — each one built to solve a real problem with production-grade thinking.
+          </p>
+        </div>
+      </div>
+
+      <!-- Certifications (expandable) -->
+      <div>
+        <p class="mb-6 font-mono text-xs uppercase tracking-wider text-accent">Certifications</p>
+        <div class="space-y-3">
+          {certifications.map((cert) => (
+            <details class="group rounded-xl border border-surface bg-surface/50 transition hover:border-surface">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-4 font-medium text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:ring-inset">
+                <span class="font-heading">{cert.title}</span>
+                <span class="flex items-center gap-2 text-sm text-text-muted">
+                  {cert.issuer} · {cert.date}
+                  <svg class="h-4 w-4 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="border-t border-surface px-4 pb-4 pt-2">
+                {cert.skills && <p class="text-sm text-text-muted">{cert.skills}</p>}
+                <a
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-2 inline-flex items-center gap-1.5 text-sm text-accent transition hover:text-accent-secondary"
+                >
+                  <span>Verify credential</span>
+                  <span class="font-mono text-text-muted">({cert.code})</span>
+                  <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

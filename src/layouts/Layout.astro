@@ -1,0 +1,81 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Portfolio of Nithineshwar Reddy Songala — MS Data Science student at UMKC building data pipelines, RAG systems, and analytics platforms." } = Astro.props;
+const canonical = "https://nithinsongala.me";
+const ogImage = `${canonical}/images/og-preview.png`;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <title>{title}</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <!-- JSON-LD Person schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nithineshwar Reddy Songala",
+      "alternateName": "Nithin Songala",
+      "url": canonical,
+      "image": `${canonical}/images/nithin.jpg`,
+      "jobTitle": "Data Engineer & ML Builder",
+      "worksFor": { "@type": "Organization", "name": "University of Missouri–Kansas City" },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Missouri–Kansas City" },
+      "email": "reddy.nithin.0331@gmail.com",
+      "sameAs": [
+        "https://github.com/reddy-nithin",
+        "https://www.linkedin.com/in/nithin-songala/"
+      ],
+      "description": description
+    })} />
+  </head>
+  <body class="bg-background text-text-primary font-body antialiased">
+    <!-- Skip to main content for accessibility -->
+    <a
+      href="#main-content"
+      class="skip-link fixed left-4 top-4 z-[100] -translate-y-20 rounded bg-accent px-4 py-2 text-sm font-medium text-white transition focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-accent-secondary"
+    >
+      Skip to content
+    </a>
+
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  :root {
+    --color-background: #0a0a0f;
+    --color-surface: #111118;
+    --color-accent: #7c3aed;
+    --color-accent-secondary: #06b6d4;
+    --color-text-primary: #e2e8f0;
+    --color-text-muted: #64748b;
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+// Hero section with scroll cue and data-style background
+---
+
+<section id="hero" class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-20 lg:pl-[304px] lg:pt-0">
+  <!-- Background: subtle grid + data vibe -->
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(124,58,237,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(124,58,237,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" aria-hidden="true"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" aria-hidden="true"></div>
+  <div class="absolute bottom-0 left-1/2 h-96 w-[600px] -translate-x-1/2 bg-accent/10 blur-[120px]" aria-hidden="true"></div>
+
+  <div class="relative z-10 max-w-3xl text-center">
+    <p class="mb-2 font-body text-accent-secondary" data-animate="fade-in">Hi, I'm</p>
+    <h1 class="font-heading text-4xl font-bold tracking-tight text-text-primary sm:text-5xl md:text-6xl" data-animate="fade-in">
+      <span class="block">Nithineshwar Reddy</span>
+      <span class="block text-accent">Nithin</span>
+      <span class="block">Songala</span>
+    </h1>
+    <p class="mt-6 font-body text-lg text-text-primary sm:text-xl" data-animate="fade-in">
+      Turning raw data into real decisions — one pipeline at a time.
+    </p>
+    <p class="mt-2 text-text-muted" data-animate="fade-in">
+      MS Data Science candidate at UMKC | Data Engineer & AI Builder | Open to full-time roles in 2026
+    </p>
+
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4" data-animate="fade-in">
+      <a
+        href="#projects"
+        class="inline-flex items-center rounded-lg bg-accent px-6 py-3 font-medium text-white transition hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+      >
+        View My Work
+      </a>
+      <a
+        href="/resume.pdf"
+        download="Nithin-Songala-Resume.pdf"
+        class="inline-flex items-center rounded-lg border border-surface bg-surface/50 px-6 py-3 font-medium text-text-primary transition hover:bg-surface focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+      >
+        Download Resume
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <a
+    href="#about"
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted transition hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded"
+    aria-label="Scroll to About"
+  >
+    <span class="text-xs font-medium">Scroll to explore</span>
+    <svg class="h-6 w-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </a>
+</section>
+
+<script>
+  document.querySelectorAll('[data-animate="fade-in"]').forEach((el, i) => {
+    (el as HTMLElement).style.opacity = '0';
+    (el as HTMLElement).style.animation = 'fadeInUp 0.6s ease-out forwards';
+    (el as HTMLElement).style.animationDelay = `${i * 0.08}s`;
+  });
+</script>

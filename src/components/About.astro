@@ -1,0 +1,56 @@
+---
+const badges = ['UMKC', 'MS Data Science', 'Business Analytics', 'Graduating May 2026'];
+// Replace src with your actual photo path: /public/images/nithin.jpg
+const photoSrc = '/images/nithin.jpg';
+---
+
+<section id="about" class="relative border-t border-surface px-6 py-20 lg:pl-[304px] lg:pr-12">
+  <div class="mx-auto max-w-4xl">
+    <span class="font-mono text-sm text-accent">01.</span>
+    <h2 class="mt-1 font-heading text-3xl font-bold text-text-primary sm:text-4xl">About Me</h2>
+
+    <div class="mt-12 flex flex-col gap-10 md:flex-row md:items-start md:gap-12">
+      <div class="shrink-0 md:w-1/3">
+        <div class="relative mx-auto w-56 md:mx-0">
+          <div class="aspect-square overflow-hidden rounded-lg border-2 border-accent/30 shadow-lg shadow-accent/10 bg-surface">
+            <img
+              src={photoSrc}
+              alt="Nithin Songala"
+              width="224"
+              height="224"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="absolute -inset-1 -z-10 rounded-lg bg-accent/20 blur-xl" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="flex-1">
+        <p class="text-lg font-medium text-accent-secondary">
+          Data Engineer & ML Builder who turns messy data into decision systems.
+        </p>
+        <div class="mt-4 space-y-4 font-body text-text-primary">
+          <p>
+            I'm a Data Science grad student at the University of Missouri–Kansas City (UMKC), specializing in building data pipelines, AI-powered applications, and analytics systems that solve real problems.
+          </p>
+          <p>
+            I'm drawn to the intersection of data engineering and machine learning — where messy, raw data gets transformed into something that actually drives decisions. Whether it's building a RAG system for FDA drug data, automating city service pipelines, or designing risk reporting engines, I care deeply about the craft behind the data.
+          </p>
+          <p>
+            When I'm not in the terminal, you'll find me watching Formula 1 races, diving into a good film, exploring new places, or finding new music to get obsessed with.
+          </p>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-2">
+          {badges.map((badge) => (
+            <span
+              class="rounded-full border border-surface bg-surface px-4 py-1.5 text-sm text-text-muted transition hover:border-accent/50 hover:text-text-primary"
+              title={badge}
+            >
+              {badge}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
